@@ -1,6 +1,6 @@
-﻿using KaniniTourismApplication.Models.DTO;
+﻿using Travelers.Models.DTO;
 
-namespace KaniniTourismApplication.Interfaces
+namespace Travelers.Interfaces
 {
     public interface ITokenGenerate
     {

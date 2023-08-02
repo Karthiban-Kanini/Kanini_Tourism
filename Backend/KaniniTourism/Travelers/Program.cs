@@ -1,8 +1,7 @@
-using KaniniTourismApplication.Interfaces;
-using KaniniTourismApplication.Models;
-using KaniniTourismApplication.Models.DTO;
-using KaniniTourismApplication.Service;
-using KaniniTourismApplication.Services;
+using Travelers.Interfaces;
+using Travelers.Models;
+using Travelers.Models.DTO;
+using Travelers.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -23,11 +22,15 @@ namespace Travelers
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             builder.Services.AddDbContext<Context>
-   (options => options.UseSqlServer(builder.Configuration.GetConnectionString("myConn")));
+               (options => options.UseSqlServer(builder.Configuration.GetConnectionString("myConn")));
             builder.Services.AddScoped<IRepo<Traveler, int>, TravelersRepo>();
+            builder.Services.AddScoped<IRepo<TravelerUser, int>, UserRepo>();
+            builder.Services.AddScoped<IRepo<TravelerFeedback, int>, FeedbackRepo>();
             builder.Services.AddScoped<IService, TravelersServices>();
-            builder.Services.AddScoped<ITokenGenerate,TokenServices>();
+
+            builder.Services.AddScoped<ITokenGenerate, TokenServices>();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -87,11 +90,13 @@ namespace Travelers
                 app.UseSwaggerUI();
             }
 
+
+
+
             app.UseAuthentication();
             app.UseCors("MyCors");
             app.UseAuthorization();
             app.MapControllers();
-
             app.Run();
         }
     }

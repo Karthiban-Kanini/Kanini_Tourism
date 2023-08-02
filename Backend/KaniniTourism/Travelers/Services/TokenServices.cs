@@ -1,11 +1,11 @@
-﻿using KaniniTourismApplication.Interfaces;
-using KaniniTourismApplication.Models.DTO;
+﻿using Travelers.Interfaces;
+using Travelers.Models.DTO;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace KaniniTourismApplication.Services
+namespace Travelers.Services
 {
     public class TokenServices : ITokenGenerate
     {

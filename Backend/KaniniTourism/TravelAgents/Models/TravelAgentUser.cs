@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KaniniTourismApplication.Models
+namespace TravelAgents.Models
 {
-    public class User
+    public class TravelAgentUser
     {
         [Key]
         public int UserId { get; set; }

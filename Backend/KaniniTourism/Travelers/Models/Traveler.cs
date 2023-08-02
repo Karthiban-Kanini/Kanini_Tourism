@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KaniniTourismApplication.Models
+namespace Travelers.Models
 {
     public class Traveler
     {
@@ -15,10 +15,9 @@ namespace KaniniTourismApplication.Models
             public string? Gender { get; set; }
             public string? Phone { get; set; }
             [Required]
-            public string? Email { get; set; }
+            public string Email { get; set; }
             public string? Address { get; set; }
-            
-            public User? Users { get; set; }
+            public TravelerUser? Users { get; set; }
     }
 }
 

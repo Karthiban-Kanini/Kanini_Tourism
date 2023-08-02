@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace KaniniTourismApplication.Models
+namespace Travelers.Models
 {
    
     
@@ -18,12 +18,13 @@ namespace KaniniTourismApplication.Models
 
             }
         public DbSet<Traveler> Travellers { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<TravelerUser> TravelUsers { get; set; }
+        public DbSet<TravelerFeedback> Feedbacks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(
-                new User
+            modelBuilder.Entity<TravelerUser>().HasData(
+                new TravelerUser
                 {
                     UserId = 1,
                     EmailId = "admin@gmail.com",

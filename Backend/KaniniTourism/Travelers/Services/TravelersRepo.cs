@@ -1,8 +1,8 @@
-﻿using KaniniTourismApplication.Interfaces;
-using KaniniTourismApplication.Models;
+﻿using Travelers.Interfaces;
+using Travelers.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace KaniniTourismApplication.Services
+namespace Travelers.Services
 {
     public class TravelersRepo : IRepo<Traveler, int>
     {
@@ -57,6 +57,23 @@ namespace KaniniTourismApplication.Services
             try
             {
                 var travelers = await _context.Travellers.SingleOrDefaultAsync(i => i.TravellerId == id);
+                if (travelers == null)
+                {
+                    return null;
+                }
+                return travelers;
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task<Traveler?> Get(string email)
+        {
+            try
+            {
+                var travelers = await _context.Travellers.SingleOrDefaultAsync(i => i.Email == email);
                 if (travelers == null)
                 {
                     return null;

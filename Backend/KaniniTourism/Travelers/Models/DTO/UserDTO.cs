@@ -1,4 +1,4 @@
-﻿namespace KaniniTourismApplication.Models.DTO
+﻿namespace Travelers.Models.DTO
 {
     public class UserDTO
     {

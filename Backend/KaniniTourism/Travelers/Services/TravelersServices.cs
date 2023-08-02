@@ -1,29 +1,40 @@
-﻿using KaniniTourismApplication.Interfaces;
-using KaniniTourismApplication.Models;
-using KaniniTourismApplication.Models.DTO;
+﻿using Travelers.Interfaces;
+using Travelers.Models;
+using Travelers.Models.DTO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace KaniniTourismApplication.Service
+namespace Travelers.Services
 {
-
-        public class TravelersServices : IService
-        {
+    public class TravelersServices : IService
+    {
         private readonly IRepo<Traveler, int> _travellerRepo;
-        private readonly IRepo<User, int> _userRepo;
+        private readonly IRepo<TravelerUser, int> _userRepo;
         private readonly ITokenGenerate _tokenGenerate;
+        private readonly IRepo<TravelerFeedback,int> _feedbackRepo;
+
         public TravelersServices(IRepo<Traveler, int> travellerRepo,
-                           IRepo<User, int> userRepo, ITokenGenerate tokenGenerate)
+                           IRepo<TravelerUser, int> userRepo, ITokenGenerate tokenGenerate, IRepo<TravelerFeedback, int> FeedbackRepo)
         {
             _travellerRepo = travellerRepo;
             _userRepo = userRepo;
             _tokenGenerate = tokenGenerate;
+            _feedbackRepo = FeedbackRepo;
         }
 
+        public async Task<TravelerFeedback?> FeedbackTraveller(TravelerFeedback feedback)
+        {
+            var feedbacks = await _feedbackRepo.Add(feedback);
+            if (feedbacks != null)
+            {
+                return feedbacks;
+            }
+            return null;
+        }
 
         public async Task<UserDTO?> TravelersLogin(UserDTO user)
         {
-            var userData = await _userRepo.Get(user.UserId);
+            var userData = await _userRepo.Get(user.EmailId);
             if (userData != null)
             {
                 var hmac = new HMACSHA512(userData.PasswordKey);
@@ -40,18 +51,17 @@ namespace KaniniTourismApplication.Service
                 return user;
             }
             return null;
-
         }
 
         public async Task<UserDTO?> TravelersRegister(TravelersRegisterDTO travellerRegDTO)
-
         {
             UserDTO? user = null;
             var hmac = new HMACSHA512();
-            travellerRegDTO.Users = new User();
+            travellerRegDTO.Users = new TravelerUser();
             travellerRegDTO.Users.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(travellerRegDTO.PasswordClear));
             travellerRegDTO.Users.PasswordKey = hmac.Key;
             travellerRegDTO.Users.EmailId = travellerRegDTO.Email;
+            travellerRegDTO.Users.Role = "Traveler";
             var userResult = await _userRepo.Add(travellerRegDTO.Users);
 
             var travellerResult = await _travellerRepo.Add(travellerRegDTO);
@@ -59,7 +69,7 @@ namespace KaniniTourismApplication.Service
             {
                 user = new UserDTO();
                 user.UserId = userResult.UserId;
-                user.Role = userResult.Role;
+                user.Role = "Traveler";
                 user.EmailId = travellerResult.Email;
                 user.Token = _tokenGenerate.GenerateToken(user);
             }
