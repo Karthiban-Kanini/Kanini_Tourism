@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="brand">
           <div className="container_n">
             <img src={logo} alt="" />
-            Travelo
+            Kanini Tourism
           </div>
           <div className="toggle">
             {navbarState ? (
