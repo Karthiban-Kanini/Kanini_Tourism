@@ -15,7 +15,7 @@ export default function Testimonials() {
             <img  src="https://i.ibb.co/3vMPgG7/narashimun.jpg" alt="" />
             <div className="details">
               <h4>Narasimhun</h4>
-              <span>USA</span>
+              <span>U K</span>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ export default function Testimonials() {
             <img src="https://i.ibb.co/qknxVsX/karthi.jpg" alt="" />
             <div className="details">
               <h4>Karthiban</h4>
-              <span>UK</span>
+              <span>U S A</span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function Testimonials() {
             < img src="https://i.ibb.co/yRp4J4P/dhinesh.jpg" alt="" />
             <div className="details">
               <h4>Dhinesh</h4>
-              <span>Ukraine</span>
+              <span>Russia</span>
             </div>
           </div>
         </div>

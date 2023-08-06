@@ -10,11 +10,11 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-          <h1>TRAVEL TO EXPLORE</h1>
-          <p>
+          <h3><b>TRAVEL TO EXPLORE</b></h3>
+          <h6>
           We travel, some of us forever, to seek other states, other lives, other souls.
 
-          </p>
+          </h6>
         </div>
         <div className="search">
           <div className="container_h">

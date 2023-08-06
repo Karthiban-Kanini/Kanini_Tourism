@@ -9,6 +9,13 @@ import TravelerHome from "./components/TravelerHome";
 import AfterLoginNavbar from "./components/AfterLoginNavbar";
 import Packageform from "./components/PackageForm";
 import Landing from "./components/Landing";
+import UpdatePackage from "./components/UpdatePackage";
+import ViewPackages from "./components/ViewPackages";
+import Agent from "./components/Agent";
+
+import Tour from'./components/Tour';
+import Around from'./components/Around';
+import Opening from'./pages/Opening';
 
 export default function App() {
   useEffect(() => {
@@ -45,7 +52,16 @@ export default function App() {
            <Route path="feedback" element={<Feedback/>} />
            <Route path="Home" element={<TravelerHome/>} />
            <Route path="AfterLoginNavbar" element={<AfterLoginNavbar/>} />
-            <Route path="Packageform" element={<Packageform/>} />
+           <Route path="Packageform" element={<Packageform/>} />
+           <Route path="UpdatePackage" element={<UpdatePackage/>} />
+           <Route path="ViewPackages" element={<ViewPackages/>} />
+           <Route path="Agent" element={<Agent/>} />
+
+           <Route path="/opening" element={<Opening/> }/> 
+           <Route path="/tour" element={<Tour/> } />
+           <Route path="/around" element={<Around/> } />
+
+
          </Routes>
        </BrowserRouter>
     </div>

@@ -114,7 +114,8 @@ function Reg() {
         localStorage.setItem("role", myData.role);
         localStorage.setItem("token", myData.token);
         // toast.success("Registered Successfully!!");
-        navigate("/Home");
+        navigate("/ViewPackages");
+
       })
       .catch((err) => {
         // toast.error("Error occured,Kindly retry again !!")
@@ -161,7 +162,7 @@ function Reg() {
             </ul>
             
             <div className ="tab-content" id="myTabContent">
-            <div className={`tab-pane fade show ${activeTab === 'Agent' ? 'active' : ''}`} id="home" role="tabpanel">
+            <div className={`tab-pane fade show ${activeTab === 'Agent' ? 'active' : ''}`} id="reg" role="tabpanel">
             
                     <h3 className ="register-heading">Register as an Agent</h3>
                     <div className ="row register-form">

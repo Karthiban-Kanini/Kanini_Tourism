@@ -5,30 +5,28 @@ import { Button, Form, FormGroup, FormControl, FormLabel } from 'react-bootstrap
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Packageform(){
+function UpdatePackage(){
     const navigate = useNavigate();
     const [PackageData, setPackageData] = useState({
         "packageId": 0,
         "agencyId": 0,
-        "destination": "",
-        "departureCity": "",
-        "fromDate": "2023-08-06T06:50:21.986Z",
-        "toDate": "2023-08-06T06:50:21.986Z",
+        "destination": "string",
+        "departureCity": "string",
+        "fromDate": "2023-08-06T07:23:32.580Z",
+        "toDate": "2023-08-06T07:23:32.580Z",
         "no_Days": 0,
         "no_Nights": 0,
-        "foodIncluded": "",
-        "accommodationIncluded": "",
-        "tourType": "",
-        "description": "",
+        "foodIncluded": "string",
+        "accommodationIncluded": "string",
+        "tourType": "string",
+        "description": "string",
         "available": 0,
-        "price": 0,
-        "places": ""
     });
   
     const Pack = () => {
       console.log(PackageData);
-      fetch("http://localhost:5014/api/Package/AddPackage", {
-        method: "POST",
+      fetch("http://localhost:5014/api/Package/UpdatePackage", {
+        method: "PUT",
         headers: {
           accept: "text/plain",
           "Content-Type": "application/json",
@@ -65,7 +63,7 @@ function Packageform(){
 
   return (
     <div className="t_container TA_card-0 justify-content-center">
-              <div>
+        <div>
         <ul>
           <li>
         <Link to="/ViewPackages"><button>Packages</button></Link>
@@ -81,7 +79,7 @@ function Packageform(){
       <div className="TA_card-body px-sm-4 px-0">
         <div className="row justify-content-center mb-5">
           <div className="col-md-10 col">
-            <h3 className="font-weight-bold ml-md-0 mx-auto text-center text-sm-left">Traveller Form</h3>
+            <h3 className="font-weight-bold ml-md-0 mx-auto text-center text-sm-left">Update Form</h3>
             <p className="mt-md-4 ml-md-0 ml-2 text-center text-sm-left">
             we are offering Adventurs tours .
             </p>
@@ -97,10 +95,15 @@ function Packageform(){
                   <div className="col-lg-5 col-md-6 col-sm-12">
 
                   <div className="form-group">
+                      <label >Package ID</label>
+                      <input onChange={(event)=>{setPackageData({...PackageData,"packageId":event.target.value})}}  type="number" className="form-control" id="Package ID" placeholder="Package ID" />
+                    </div> 
+                    
+                    <div className="form-group">
                       <label >Agency ID</label>
                       <input onChange={(event)=>{setPackageData({...PackageData,"agencyId":event.target.value})}}  type="number" className="form-control" id="Agency ID" placeholder="Agency ID" />
                     </div> 
-                    
+
                     <div className="form-group">
                       <label >Destination </label>
                       <input onChange={(event)=>{setPackageData({...PackageData,"destination":event.target.value})}} type="text" className="form-control" id="Destination" placeholder="Destination" />
@@ -120,11 +123,6 @@ function Packageform(){
                       <label >To Date</label>
                       <input onChange={(event)=>{setPackageData({...PackageData,"toDate":event.target.value})}} type="Date" className="form-control" id="ToDate" placeholder="To Date" />
                     </div> 
-
-                    <div className="form-group">
-                      <label >Availablility</label>
-                      <input onChange={(event)=>{setPackageData({...PackageData,"available":event.target.value})}} type="number" className="form-control" id="Availablility" placeholder="Availablility" />
-                    </div>
                       
                     <div className="form-group">
                       <label >Description</label>
@@ -134,11 +132,6 @@ function Packageform(){
                   </div>
 
                   <div className="col-lg-5 col-md-6 col-sm-12">
-
-                  <div className="form-group">
-                      <label>Price</label>
-                      <input onChange={(event)=>{setPackageData({...PackageData,"price":event.target.value})}} type="number" className="form-control" id="Price" placeholder="Price" />
-                    </div>
 
                     <div className="form-group">
                       <label>Days </label>
@@ -150,6 +143,11 @@ function Packageform(){
                       <input onChange={(event)=>{setPackageData({...PackageData,"no_Nights":event.target.value})}} type="number" className="form-control" id="Nights" placeholder="Nights" />
                     </div>
                    
+                    <div className="form-group">
+                      <label >Availablility</label>
+                      <input onChange={(event)=>{setPackageData({...PackageData,"available":event.target.value})}} type="number" className="form-control" id="Availablility" placeholder="Availablility" />
+                    </div>
+
                     <div className="form-group">
                       <label >Tour Type</label>
                       <input onChange={(event)=>{setPackageData({...PackageData,"tourType":event.target.value})}} type="text" className="form-control" id="TourType" placeholder="Tour Type" />
@@ -163,10 +161,6 @@ function Packageform(){
                     <div className="form-group">
                       <label >Accommodation</label>
                       <input onChange={(event)=>{setPackageData({...PackageData,"accommodationIncluded":event.target.value})}} type="text" className="form-control" id="Accommodation" placeholder="Accommodation" />
-                    </div>
-                    <div className="form-group">
-                      <label >Places</label>
-                      <input onChange={(event)=>{setPackageData({...PackageData,"places":event.target.value})}} type="text" className="form-control" id="Places" placeholder="Places" />
                     </div>
               
                   </div>
@@ -203,6 +197,6 @@ function Packageform(){
       </div>
     </div>
   );
-};
+}
 
-export default Packageform;
+export default UpdatePackage;

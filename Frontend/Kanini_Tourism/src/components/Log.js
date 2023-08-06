@@ -44,12 +44,16 @@ function Login()  {
         if (myData.role === "Agent") {
           console.log(myData);
           // toast.success("successful");
-          navigate("/Home");
+          navigate("/ViewPackages");
         } else if (myData.role === "traveller") {
           console.log(myData);
           // toast.success("successful");
           navigate("/Home");
-        } else if ((myData.role === "Traveler" || myData.role === "Agent")&& myData.token == null) {
+        } else if (myData.role === "Admin") {
+          console.log(myData);
+          // toast.success("successful");
+          navigate("/Agent");
+        }else if ((myData.role === "Traveller" || myData.role === "Agent")&& myData.token == null) {
           console.log(myData);
           // toast.warning("Oops!! It seems you are not yet approved . Try login later !!");
           navigate("/UnApproveProfile");
