@@ -5,7 +5,7 @@ import { AiFillInstagram } from "react-icons/ai";
 export default function Footer() {
   return (
     <FooterContainer>
-      <span>Copyright &copy; 2021 Travelo. All rights reserved</span>
+      <span>Copyright &copy; 2023 Kanini Tourism. All rights reserved</span>
       <ul className="links">
         <li>
           <a href="#hero">Home</a>
@@ -20,18 +20,21 @@ export default function Footer() {
           <a href="#testimonials">Testimonials</a>
         </li>
       </ul>
+
       <ul className="social__links">
+        <li >
+          <a  href="https://www.facebook.com/KANINIans/" ><BsFacebook /></a>
+        </li>
+
         <li>
-          <BsFacebook />
+        <a  href= "https://www.instagram.com/kanini_com/?hl=en"> <AiFillInstagram /></a>
         </li>
         <li>
-          <AiFillInstagram />
-        </li>
-        <li>
-          <BsLinkedin />
+        <a  href=" https://www.linkedin.com/company/kanini/mycompany/verification/"><BsLinkedin /></a>
         </li>
       </ul>
     </FooterContainer>
+    
   );
 }
 

@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Recommend from "./components/Recommend";
-import ScrollToTop from "./components/ScrollToTop";
-import Services from "./components/Services";
-import Testimonials from "./components/Testimonials";
+import { Routes,Switch, Route, BrowserRouter } from "react-router-dom";
 import scrollreveal from "scrollreveal";
-
-import Reg from './components/Reg'
+import Home from './components/Home';
+import Reg from './components/Reg';
 import Log from './components/Log';
 import Feedback from './components/Feedback';
-
+import TravelerHome from "./components/TravelerHome";
+import AfterLoginNavbar from "./components/AfterLoginNavbar";
+import Packageform from "./components/PackageForm";
+import Landing from "./components/Landing";
 
 export default function App() {
   useEffect(() => {
@@ -39,16 +36,18 @@ export default function App() {
   }, []);
   return (
     <div>
-      <ScrollToTop />
-      <Navbar />
-      <Hero />
-      <Services />
-      <Recommend />
-      <Testimonials />
-      <Footer />
-      <Reg/>
-      <Log/>
-      <Feedback/>
+      <BrowserRouter>
+         <Routes>
+           <Route path="/" exact element={<Landing/>} />
+           <Route path="Home" element={<Home/>}/>
+           <Route path="login" exact element={<Log/>} />
+           <Route path="register" element={<Reg/>} />
+           <Route path="feedback" element={<Feedback/>} />
+           <Route path="Home" element={<TravelerHome/>} />
+           <Route path="AfterLoginNavbar" element={<AfterLoginNavbar/>} />
+            <Route path="Packageform" element={<Packageform/>} />
+         </Routes>
+       </BrowserRouter>
     </div>
   );
 }

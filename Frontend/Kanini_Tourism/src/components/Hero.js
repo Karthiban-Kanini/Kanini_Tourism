@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import homeImage from "../assets/hero.png";
+import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <Section id="hero">
@@ -11,9 +12,8 @@ export default function Hero() {
         <div className="title">
           <h1>TRAVEL TO EXPLORE</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            natus, enim ipsam magnam odit deserunt itaque? Minima earum velit
-            tenetur!
+          We travel, some of us forever, to seek other states, other lives, other souls.
+
           </p>
         </div>
         <div className="search">
@@ -29,7 +29,8 @@ export default function Hero() {
             <label htmlFor="">Check-out</label>
             <input type="date" />
           </div>
-          <button>Explore Now</button>
+          <Link to="/ "><button>Explore Now</button></Link>
+
         </div>
       </div>
     </Section>

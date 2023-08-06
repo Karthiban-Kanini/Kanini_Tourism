@@ -99,7 +99,7 @@ export default function Recommend() {
                 <h4>{destination.cost}</h4>
               </div>
               <div className="distance">
-                <span>1000 Kms</span>
+                <span>100 - 4075 Kms</span>
                 <span>{destination.duration}</span>
               </div>
             </div>

@@ -10,40 +10,36 @@ export default function Testimonials() {
       <div className="testimonials">
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
-          </p>
+          Thank you so much for being proactive. Maybe it seems like no big deal to you but this is amazing customer service and is greatly appreciated.          </p>
           <div className="info">
-            <img src={avatarImage} alt="" />
+            <img  src="https://i.ibb.co/3vMPgG7/narashimun.jpg" alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Narasimhun</h4>
+              <span>USA</span>
             </div>
           </div>
         </div>
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
+          I highly recommend the Resort at Longboat Key & the area. It was perfect for not being crowded on the beach. The beach is for guests only & beautiful!
           </p>
           <div className="info">
-            <img src={avatarImage} alt="" />
+            <img src="https://i.ibb.co/qknxVsX/karthi.jpg" alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Karthiban</h4>
+              <span>UK</span>
             </div>
           </div>
         </div>
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
+          Booking through you was very easy and made our lives so much easier. I have nothing bad to say! Thank you for giving us tips and guidance it was very helpful!
           </p>
           <div className="info">
-            <img src={avatarImage} alt="" />
+            < img src="https://i.ibb.co/yRp4J4P/dhinesh.jpg" alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Dhinesh</h4>
+              <span>Ukraine</span>
             </div>
           </div>
         </div>
