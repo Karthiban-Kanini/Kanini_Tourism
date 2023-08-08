@@ -151,16 +151,16 @@ namespace PackageAPI.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [ProducesResponseType(typeof(List<packages>), StatusCodes.Status200OK)]//Success Response
         [ProducesResponseType(StatusCodes.Status404NotFound)]//Failure Response
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public async Task<ActionResult<ICollection<packages>>> GetPackageByAgentID(int id)
+        public async Task<ActionResult<ICollection<packages>>> GetPackageByAgentID(IdDTO id)
         {
             try
             {
-                var tourPackages = await _service.GetPackageByAgentID(id);
+                var tourPackages = await _service.GetPackageByAgentID(id.ID);
                 if (tourPackages != null)
                 {
                     return Ok(tourPackages);
